@@ -10,7 +10,9 @@ var email;
 
 
 exports.getAll=(req,res)=>{
+    res.send("success");
 }
+
 exports.create=(req,res)=>{
    
     connection.sync().then(()=>{

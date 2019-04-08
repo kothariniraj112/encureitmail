@@ -14,7 +14,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use('/mydata',express.static(path.join(__dirname, 'public/attachment/mydata.pdf')));
+app.use('/mydata',express.static(path.join(__dirname, 'public/attachment/mydata.pdf')));
 
 
 app.use('/client',clientRouter);

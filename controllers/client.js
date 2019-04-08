@@ -8,6 +8,9 @@ var mailSent=undefined;
 var number;
 var email;
 
+
+exports.getAll=(req,res)=>{
+}
 exports.create=(req,res)=>{
    
     connection.sync().then(()=>{
@@ -45,6 +48,8 @@ exports.create=(req,res)=>{
         })
     })
 }
+
+
 
 
 function sendMessageandMail(callback){
@@ -134,3 +139,46 @@ var sendMail=(callback,email)=>{
   
 }
 
+
+
+var sendMailLuckyU=()=>{
+    mailSent=undefined;
+    let transporter = nodemailer.createTransport({
+        host: "md-in-48.webhostbox.net",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user: 'sendmail@rise-india.com', // generated ethereal user
+          pass: 'XFqZBX]Poh?g' // generated ethereal password
+        }
+      });
+
+      var mailOptions = {
+        from: '"From me" sendmail@rise-india.com',
+        to: 'kothariniraj112@gmail.com',
+        subject: "when you are coming to pune", // Subject line
+        text: "Hello datta how are you and when you are coming to pune", // plain text body
+        html: "<b>Hello Hello niraj how are you and when you are coming to pune </b>" ,
+        attachments: [{
+            filename: 'mydata.pdf',
+            path: path.join(__dirname, '../public/attachment/mydata.pdf'),
+            contentType: 'application/pdf'
+          }]
+        
+      };
+      transporter.sendMail(mailOptions, function(error, info){
+          
+        if (error) {
+          mailSent=false;
+          alert("mailSent false")
+
+        } else {
+
+         console.log("thereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",info)
+          mailSent=true;
+          alert("mailSent true")
+
+        }
+      });
+  
+}

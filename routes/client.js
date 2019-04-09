@@ -3,6 +3,8 @@ var express=require('express');
 var router=express.Router();
 
 
-router.post('/',clientCtrl.create)
-router.get('/getall',clientCtrl.getAll)
+router.get('/client',clientCtrl.getAll)
+router.get('/client/all',clientCtrl.getAllClient)
+router.post('/client',clientCtrl.create)
+router.put('/client/:id',clientCtrl.update)
 module.exports=router;

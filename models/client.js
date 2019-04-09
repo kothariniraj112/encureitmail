@@ -2,7 +2,7 @@ var connection=require('../db/db');
 var Sequelize=require('sequelize');
 
 
-var client=connection.define('client',{
+var client=connection.define('elaundromatclient',{
     name:{
         type:Sequelize.STRING
     },
